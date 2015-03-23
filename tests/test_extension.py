@@ -1,6 +1,7 @@
 from django.conf import settings
 settings.configure()
 
+import unittest
 from unittest import TestCase
 from rbautofillbug.extension import AutoFillBugExtension, find_bugs
 
@@ -28,3 +29,6 @@ class TestAutoFillBugsExtension(TestCase):
         bugs = find_bugs(bug_regex,
             "#17: foo() returns trailing whitespace (also fixes issue 11)")
         self.assertItemsEqual(bugs, ['17', '11'])
+
+if __name__ == '__main__':
+    unittest.main()
